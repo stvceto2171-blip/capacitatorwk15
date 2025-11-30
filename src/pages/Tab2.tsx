@@ -10,7 +10,7 @@ import {
   IonIcon,
 } from '@ionic/react';
 
-// CHANGE: Remove or comment out ExploreContainer
+// ExploreContainer removed as requested
 // import ExploreContainer from '../components/ExploreContainer';
 
 import './Tab2.css';
@@ -38,7 +38,7 @@ const Tab2: React.FC = () => {
           </IonFabButton>
         </IonFab>
 
-        {/* ExploreContainer has been removed */}
+        {/* ExploreContainer removed */}
         {/* <ExploreContainer name="Tab 2 page" /> */}
       </IonContent>
     </IonPage>
