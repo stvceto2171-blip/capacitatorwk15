@@ -10,16 +10,13 @@ import {
   setupIonicReact,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-
-// Updated icons import for Photo Gallery
+// CHANGE: Update the following import
 import { images, square, triangle } from 'ionicons/icons';
-
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 
-/* Core CSS and theme variables remain unchanged */
-// ...existing @ionic/react css imports...
+/* ...existing Ionic styles... */
 
 const App: React.FC = () => (
   <IonApp>
@@ -39,18 +36,17 @@ const App: React.FC = () => (
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
-
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon aria-hidden="true" icon={triangle} />
             <IonLabel>Tab 1</IonLabel>
           </IonTabButton>
-
           <IonTabButton tab="tab2" href="/tab2">
+            {/* CHANGE: Update icon */}
             <IonIcon aria-hidden="true" icon={images} />
+            {/* CHANGE: Update label */}
             <IonLabel>Photos</IonLabel>
           </IonTabButton>
-
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon aria-hidden="true" icon={square} />
             <IonLabel>Tab 3</IonLabel>
@@ -61,4 +57,4 @@ const App: React.FC = () => (
   </IonApp>
 );
 
-export default App; 
+export default App;
