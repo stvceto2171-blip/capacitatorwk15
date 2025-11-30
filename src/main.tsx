@@ -1,10 +1,21 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-// CHANGE: Add the following import
-import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
-// CHANGE: Call the element loader before the render call
+// REQUIRED: Global Ionic CSS (this fixes tab bar position + all styling)
+import '@ionic/react/css/core.css';
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
+import '@ionic/react/css/padding.css';
+import '@ionic/react/css/float-elements.css';
+import '@ionic/react/css/text-alignment.css';
+import '@ionic/react/css/text-transformation.css';
+import '@ionic/react/css/flex-utils.css';
+import '@ionic/react/css/display.css';
+
+// Ionic PWA Elements (camera, etc. in Capacitor)
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 defineCustomElements(window);
 
 const container = document.getElementById('root');
