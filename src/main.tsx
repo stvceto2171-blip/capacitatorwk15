@@ -1,8 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import { IonApp } from '@ionic/react';
 
-// REQUIRED: Global Ionic CSS (this fixes tab bar position + all styling)
+// Global Ionic CSS — must be here
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
@@ -14,14 +15,17 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-// Ionic PWA Elements (camera, etc. in Capacitor)
+// PWA Elements
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 defineCustomElements(window);
 
+// ← CRITICAL: Wrap the entire app in <IonApp> here (not just in App.tsx)
 const container = document.getElementById('root');
 const root = createRoot(container!);
 root.render(
   <React.StrictMode>
-    <App />
+    <IonApp>
+      <App />
+    </IonApp>
   </React.StrictMode>
 );
