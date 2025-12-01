@@ -1,4 +1,5 @@
 import { camera } from 'ionicons/icons';
+// CHANGE: Update import
 import {
   IonContent,
   IonHeader,
@@ -8,14 +9,17 @@ import {
   IonFab,
   IonFabButton,
   IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonImg,
 } from '@ionic/react';
-
-// ExploreContainer removed as requested
-// import ExploreContainer from '../components/ExploreContainer';
-
-import './Tab2.css';
+import { usePhotoGallery } from '../hooks/usePhotoGallery';
 
 const Tab2: React.FC = () => {
+  // CHANGE: Add `photos` array to destructure from `usePhotoGallery()`
+  const { photos, addNewToGallery } = usePhotoGallery();
+
   return (
     <IonPage>
       <IonHeader>
@@ -23,7 +27,6 @@ const Tab2: React.FC = () => {
           <IonTitle>Photo Gallery</IonTitle>
         </IonToolbar>
       </IonHeader>
-
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
@@ -31,15 +34,23 @@ const Tab2: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        {/* Floating Action Button with Camera Icon */}
+        {/* CHANGE: Add a grid component to display the photos */}
+        <IonGrid>
+          <IonRow>
+            {/* CHANGE: Create a new column and image component for each photo */}
+            {photos.map((photo) => (
+              <IonCol size="6" key={photo.filepath}>
+                <IonImg src={photo.webviewPath} />
+              </IonCol>
+            ))}
+          </IonRow>
+        </IonGrid>
+
         <IonFab vertical="bottom" horizontal="center" slot="fixed">
-          <IonFabButton>
-            <IonIcon icon={camera} />
+          <IonFabButton onClick={() => addNewToGallery()}>
+            <IonIcon icon={camera}></IonIcon>
           </IonFabButton>
         </IonFab>
-
-        {/* ExploreContainer removed */}
-        {/* <ExploreContainer name="Tab 2 page" /> */}
       </IonContent>
     </IonPage>
   );
